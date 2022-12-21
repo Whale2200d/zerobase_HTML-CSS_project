@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--
+    DOCTYPE이 선언되어야 하는 이유
+    HTML의 버전을 확인하는 영역
+    DOCTYPE이 없으면, HTML5인지 아닌지 확인이 불가하여
+    Style 등 디자인 부분이 마음대로 렌더링되어 화면에 보여준다.
+ -->
+<html lang="en">
+<head>
+    <!--
+        Body 태그를 읽기 전에 알아야 할 HTML의 기본 정보 작성
+    -->
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="style_02.css">
+</head>
+<body>
+    <!-- 일단 div 태그로 나누자. -->
+    <!-- 1. 유지보수가 편리하다. -->
+    <!-- 2. 협업이 쉬워진다. > div.class id명을 '이해할 수 있게 설정'할 것(명사+명사, 하이픈, 언더바, 대문자 주로 활용) -->
+
+    <!-- 자식 태그가 부모 태그의 속성을 이어받는 것을 '상속'이라 한다. -->
+    <!-- CSS 속성 중에는 상속되는 속성이 있고, 아닌게 있다. -->
+    <!-- 예를 들어 style="border: 1px solid black;"와 같이 border의 경우는 부모에만 적용이 되고, 자식에게 적용하려면 자식 태그에 CSS 속성을 부여해야 한다. 반면, color의 경우는 부모 태그에 적용할 경우, 자식에게 자동 적용된다. -->
+    <!-- <div style="border: 1px solid black; color: red;">
+        <p>Lorem ipsum</p>
+        <p>Lorem ipsum</p>
+    </div> -->
+    <!-- color와 같이 상속이 가능한 속성으로 font-size, font-weight 등이 존재한다. -->
+    <!-- 태그마다 상속이 안되는 경우도 있다. 예를 들어 button 태그는 부모 태그에 font-size, font-weight가 있더라도 상속받지 않고, 직접 속성을 부여해야 한다. -->
+    <!-- 상속 개념은 계속 실습하게 될 예정으로, 초장부터 외우려하지 않아도 되고, 자연스럽게 익히는 게 좋다. -->
+    <!-- 웹 페이지를 만들기 위해 HTML 문서를 작성할 때, body 태그 안에는 바로 제작하지 않고 container 또는 wrap을 class로 갖는 div 태그를 설정하고 출발한다. 이유는 나중에 배운다. -->
+    <!-- <div class="container">
+        <div class="parent">
+            <div class="child"></div>
+        </div>
+    </div> -->
+    <!-- parent 클래스에 스타일을 준 상태로 내용을 입력하면, width 만큼 글자 위치가 변경되는 것을 확인할 수 있다. width와 height도 상속된다. -->
+    <!-- 부모로부터 px로 된 width, height 값을 부여받으면, 자식의 width, height는 %로 적용할 수 있다. -->
+    <!-- ※ CSS 속성 위에 마우스 hover하면, MDN Reference를 확인할 수 있고, 거기서 파생된 Syntax를 볼 수 있다. -->
+
+    <!-- <div class="container">
+        <p class="px">PX</p>
+        <p class="em">EM</p>
+        <p class="rem">REM</p>
+    </div> -->
+    <!-- 일반적으로 16px = 1em = 1rem
+    px는 화소 단위로 해상도 등에 사용된다. -->
+    <!-- 부모태그에게 font-size 속성이 있으면, 해당 속성을 1em으로 계산한다. HTML은 특별한 설정이 없으면 자동적으로 16px로 계산하도록 설계되어 있다. 따라서 현재 1em은 16px로 설정되어 있다. 예를 들어 부모 태그인 container에게 style="font-size : 50px;"를 적용할 경우, 해당 50px을 1em으로 갖는다, 따라서 em class 값만 커지게 된다. -->
+    <!-- rem의 경우는 HTML의 font-size를 1 rem으로 계산한다. -->
+    <!-- 해당 단위를 계산하면서 제대로 적용되었는지 유무를 판단하려면, F12 검사 기능에서 원하는 태그(엘리먼트)를 선택한 후, computed(계산됨) Tab으로 이동하여 Filter 부분을 확인하면, font-size를 확인할 수 있다. (%, em, rem 등은 개발환경에 따라 px이 변하기 때문에 이 기능으로 검사하는 것이 좋다.) -->
+    <!-- Filter 부분은 Show all 버튼을 클릭하면, 더 많은 속성을 확인할 수 있다. -->
+    <!-- 상기 배운 3가지 단위 중 font-size에는 어떤 단위를 사용하느냐면, rem을 사용하는 것이 맞다. 크롬의 '... > 설정 > 모양 > 글꼴크기'를 변경하게 되면, rem만 반응한다는 것을 알 수 있다. -->
+    <!-- 사용자에게 글꼴 크기를 변경할 수 있는 권리를 지켜주기 위해 font-size는 rem으로 코딩하는 것이 원론적으로는 맞다. 앞으로 디자인은 이해를 돕기 위해 px를 사용할 예정이다. -->
+
+    <!-- <div class="wrap">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div> -->
+    <!-- div 태그는 display : block; 이므로 웹 페이지 한 줄 전체를 차지한다. 현재는 wrap class을 400px로 고정했으므로, 400px 안에서 전체를 차지한다. -->
+    <!-- 그럼에도 두 번째와 세 번째 div 태그는 한 줄에 배치되었는데, 어떤 원리로 가능한지 알아보자. 방법은 4가지로 구식 2개, 가장 많이 사용하는 방식 1개, 최신 기술 1개로 구성된다. -->
+    <!-- <div class="container">
+        <div class="top"></div>
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="bottom"></div>
+    </div> -->
+    <!-- 일차원적으로 left와 right 사이에 display : block이라는 기본 속성을 없애는 것이 필요하다. left와 right 클래스에 display : inlin-block으로 변경한다. -->
+    <!-- ※ 사실 변경만으로 같은 줄에 위치하진 않는다. p 태그 학습할 때 알려준 것과 같이 div 사이 엔터치면, HTML이 공백을 자동으로 적용했기 때문이다. 이를 해결하기 위해 container에 font-size : 0px;를 적용한다. (font-size는 상속이 되는 속성이기 때문에 container에 적용하면 원하는 레이아웃대로 적용이 될 것이다.) -->
+    <!-- 07:45부터 필요에 따라 참고 -->
+
+    <!-- float 속성은 레이아웃 배치를 위해 만들어진 속성이다. 간단하게 정렬이 필요할 경우 사용한다. HTML의 모든 속성에는 float : none이라는 값으로 설정되어 있다.-->
+    <!-- float : none이면 기본적으로 1층에 살고 있다. 값이 left나 right로 바뀌면 2층으로 올라간다. -->
+    <!-- bottom을 보여주기 위해 clear : both; 속성을 부여한다. clear 속성은 float 속성이 끝나는 시점부터 원래대로 1층으로 돌아와 정렬되도록 만들어준다. both는 left건 right건 다 1층으로 돌아오도록 사용할 수 있다. -->
+    <!-- float 속성의 정렬 기준은 부모 태그 기준이다. -->
+
+    <!-- <div class="container">
+        <div class="top"></div>
+        <div class="flexBox">
+            <div class="left"></div>
+            <div class="right"></div>
+        </div>
+        <div class="bottom"></div>
+    </div> -->
+    <!-- flex -->
+    <div class="flexBox">
+        <span>웨</span>
+        <span>일</span>
+        <span>코</span>
+        <span>딩</span>
+    </div>
+    <!-- F12 검사에서 flexBox 클래스를 클릭하면, flexBox에 사용된 스타일을 확인할 수 있다. 이 중 flex는 추가적인 버튼이 있는 것을 확인할 수 있다. 해당 버튼을 통해 다양한 위치 선정을 미리 테스트 해보자. -->
+    <!-- span 태그 대신 div 태그로 변경하면 flex-wrap도 사용할 수 있다. -->
+    <!-- align-content은 flexBox 클래스의 자식 태그가 2줄 이상일 때, 적용할 수 있고, align-items는 자식 태그가 1줄일 때 적용할 수 있는 속성이다.-->
+    <!-- 참고 URl : https://velog.io/@adguy/align-content-vs-align-items -->
+
+    <!-- grid -->
+</body>
+</html>

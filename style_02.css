@@ -1,0 +1,68 @@
+/* .parent{
+    width: 200px;
+    height: 200px;
+    border: 1px solid red;
+}
+
+
+.child {
+    width: 50%;
+    height: 50%;
+    background-color: blue;
+} */
+
+/* 단위 : px, em, rem, vw, vh, fr*/
+/* .px {
+    font-size: 16px;
+}
+.em {
+    font-size: 1em;
+}
+.rem {
+    font-size: 1rem;
+} */
+
+/* .wrap {
+    width: 400px;
+    height: 600px;
+    border: 1px solid black;
+    font-size: 0px;
+} */
+.container {
+    width : 400px;
+    height : 600px;
+    border : 1px solid black;
+    /* font-size : 0px; */
+}
+.top {
+    background: red;
+    width : 400px;
+    height: 200px;
+}
+.left {
+    background: blue;
+    width : 200px;
+    height: 200px;
+    /* display : inline-block; */
+    /* float : left; */
+}
+.right {
+    background: green;
+    width : 200px;
+    height: 200px;
+    /* display : inline-block; */
+    /* float : left; */
+}
+.bottom {
+    background: purple;
+    width : 400px;
+    height: 200px;
+    /* clear : both; */
+}
+
+.flexBox{
+    display: flex;
+    width: 500px;
+    height: 300px;
+    border: 1px solid black;
+}
