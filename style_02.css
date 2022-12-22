@@ -28,36 +28,52 @@
     border: 1px solid black;
     font-size: 0px;
 } */
-.container {
+/* .container {
     width : 400px;
     height : 600px;
     border : 1px solid black;
-    /* font-size : 0px; */
-}
+    font-size : 0px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+    "top right right"
+    "left right right"
+    "bottom bottom bottom";
+} */
 .top {
     background: red;
-    width : 400px;
-    height: 200px;
+    
+    grid-area: top;
+    width: auto;
+    height: auto;
 }
 .left {
     background: blue;
-    width : 200px;
-    height: 200px;
     /* display : inline-block; */
     /* float : left; */
+
+    grid-area: left;
+    width: auto;
+    height: auto;
 }
 .right {
     background: green;
-    width : 200px;
-    height: 200px;
     /* display : inline-block; */
     /* float : left; */
+
+    grid-area: right;
+    width: auto;
+    height: auto;
 }
 .bottom {
     background: purple;
-    width : 400px;
-    height: 200px;
     /* clear : both; */
+
+    grid-area: bottom;
+    width: auto;
+    height: auto;
 }
 
 .flexBox{
@@ -65,4 +81,32 @@
     width: 500px;
     height: 300px;
     border: 1px solid black;
+}
+
+@font-face {
+    font-family: Home Christmas;
+    src: url(./font/Home\ Christmas.otf);
+}
+.font {
+    font: italic small-caps bolder 36px/48px Home Christmas;
+    /* font-style: italic;
+    font-weight: bolder;
+    font-variant: small-caps;
+    font-size: 1em;
+    line-height: 1.2em;
+    font-family: Home Christmas; */
+}
+
+.container {
+    width: 200px;
+    height: 100px;
+    border: 1px solid red;
+}
+
+p {
+    margin: 0px;
+    padding: 0px;
+    /* p 태그의 기본 속성 제거 */
+    border: 1px solid blue;
+    display: inline-block;
 }
