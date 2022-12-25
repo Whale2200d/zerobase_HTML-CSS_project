@@ -1,0 +1,143 @@
+body {
+    background-color: #c6c6c6;
+    margin: 0px;
+}
+
+.wrap {
+    background-color: #fff;
+    width: 375px;
+    height: 100vh;
+    /* vh: view height, 웹 사이트 크기를 100등분하여 1이 1vh를 의미한다. 따라서 100vh는 사용자가 브라우저에서 눈으로 확인할 수 있는 영역 전체를 잡게된다. */
+    /* vw : view width, 상기 동일 */
+    margin: 0 auto;
+    /* 0 - 위아래, auto - 좌우 */
+    display: flex;
+    align-items: center;
+}
+
+.instagram {
+    width: 100%;
+    height: 550px;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 375px 1fr;
+    grid-template-areas: 
+    "header"
+    "image"
+    "footer";
+
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+}
+.header {
+    grid-area: header;
+    width: auto; /* ★ */
+    height: auto; /* ★ */
+    margin: 5px 10px;
+
+    /* p 태그 관련 대부분 속성은 상속이 된다. */
+    font-weight: bold;
+}
+.header-left {
+    float: left;
+    display: flex;
+    align-items: center;
+}
+.header-img {
+    border: 1px solid black;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.header-right {
+    float: right;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.right-menu {
+    user-select: none;
+    cursor: pointer;
+}
+.image {
+    clear: both;
+    grid-area: image;
+    width: 100%;
+    height: 100%;
+
+    background-image: url(./img/art_01.jpg);
+    background-size: cover;
+}
+.footer {
+    grid-area: footer;
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 50px auto auto;
+    grid-template-areas: 
+    "top-left top-center top-right"
+    "like like like"
+    "comment comment comment";
+}
+.top-left{
+    grid-area: top-left;
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
+}
+
+.top-left span{
+    cursor: pointer;
+}
+.top-left span:nth-of-type(1):hover{
+    color: red;
+}
+#fill-heart{
+    display: none;
+    fill: red;
+}
+
+.top-center{
+    grid-area: top-center;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+ul {
+    padding: 0px;
+    display: flex; justify-content: space-between;
+    list-style: none;
+    width: 50%;
+}
+li {
+    width: 7px;
+    height: 7px;
+    background-color: lightgrey;
+    border-radius: 50%;
+}
+.top-right{
+    grid-area: top-right;
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+.like{
+    grid-area: like;
+    font-size: 12px;
+    margin: 5px 10px;
+}
+.comment{
+    grid-area: comment;
+    font-size: 10px;
+    margin: 0 10px;
+}
