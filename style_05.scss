@@ -1,0 +1,157 @@
+// 변수 설정
+// $primary-color: #333;
+// $color: #00498c;
+$color: #7fffd4;
+
+// 디자인 내용
+// body {
+//     .box {
+//         width: 100%;
+//         background-color: $primary-color;
+//         color: gray;
+//         &:hover{
+//             background-color: #fff;
+//         }
+//     }
+
+//     #test{
+//         color: $color;
+//     }
+// }
+
+// SASS에 built-in(내장)된 색깔 관련 함수
+/* 
+    darken : 어둡게
+    lighten : 밝게
+    saturate : 더 선명하게(높은 채도)
+    desaturate : 더 흐리게(낮은 채도)
+    adjust-hue : 명도 변경
+    rgba : alpha값 변경
+*/
+
+// body{
+//     div{
+//         width: 100px;
+//         height: 100px;
+//         border: 1px solid black;
+//         background-color: $color;
+//         display: inline-block;
+//         margin: 10px;
+//         text-align: center;
+//         &:nth-of-type(1){
+
+//         }
+//         &:nth-of-type(2){
+//             background-color: darken($color, 20%);
+//         }
+//         &:nth-of-type(3){
+//             background-color: lighten($color, 20%);
+//         }
+//         &:nth-of-type(4){
+//             background-color: saturate($color, 20%);
+//         }
+//         &:nth-of-type(5){
+//             background-color: desaturate($color, 20%);
+//         }
+//         &:nth-of-type(6){
+//             background-color: adjust-hue($color, 60deg);
+//         }
+//         &:nth-of-type(7){
+//             background-color: rgba($color, 0.3);
+//         }
+//     }
+// }
+
+// 6. 확장(extend)으로 CSS 템플릿 구성하기
+// % : 임시 클래스 문법으로 기본 디자인을 정의할 수 있다.
+
+// .btn {
+//     padding: 10px 20px;
+//     cursor: pointer;
+//     background-color: inherit;
+//     border: 1px solid lightgray;
+//     border-radius: 14px;
+// }
+// %btn {
+//     padding: 10px 20px;
+//     cursor: pointer;
+//     background-color: inherit;
+//     border: 1px solid lightgray;
+//     border-radius: 14px;
+// }
+// .btn-1{
+//     @extend %btn;
+//     border: 1px solid red;
+//     color: red;
+//     font-weight: bold;
+// }
+// .btn-2{
+//     @extend %btn;
+//     border: 1px solid blue;
+//     color: blue;
+//     font-weight: bold;
+// }
+
+// 7. mixin을 통한 CSS 맞춤 템플릿
+// @mixin btn($border-color : lightgray, $font-color: lightgray) {
+//     padding: 10px 20px;
+//     cursor: pointer;
+//     background-color: inherit;
+//     border-radius: 14px;
+//     font-weight: bold;
+
+//     border: 1px solid $border-color;
+//     color: $font-color;
+// }
+// .btn{
+//     @include btn($font-color: black);
+// }
+// .btn-1{
+//     @include btn(red, red);
+// }
+// .btn-2{
+//     @include btn(blue, blue);
+// }
+
+// 8. SASS에서 사용할 수 있는 연산자
+// operator : 연산자
+// 9. use를 통해 다른 파일 가져오기
+// @use "./test.scss";
+// @use "_test" as c;
+
+// .box {
+//     color: c.$변수;
+// }
+
+// 10. SASS에서 사용할 수 있는 다른 기능들
+// 반복문, 변수 : 배열, 오브젝트, 조건문(가정문) 등
+// 반복문
+// @for $i from 1 through 10 {
+//     .box:nth-of-type(#{$i}){
+//         width: 100px;
+//     }
+// }
+// 변수 : 배열
+// $list: orange, blue, red, yellow;
+// 오브젝트
+// $object: (
+//     1: orange,
+//     2: blue,
+//     3: yellow
+// );
+// @each $key, $color in $object{
+//     .box-#{key}{
+//         background-color: $color;
+//     }
+// }
+// 조건문
+$statement: blue;
+
+p{
+    @if $statement == blue{
+        color: blue;
+    }
+    @else {
+        color: red;
+    }
+}

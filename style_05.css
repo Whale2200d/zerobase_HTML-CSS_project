@@ -1,0 +1,12 @@
+@charset "UTF-8";
+/* 
+    darken : 어둡게
+    lighten : 밝게
+    saturate : 더 선명하게(높은 채도)
+    desaturate : 더 흐리게(낮은 채도)
+    adjust-hue : 명도 변경
+    rgba : alpha값 변경
+*/
+p {
+  color: blue;
+}
